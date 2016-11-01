@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#myCanvas{border: 1px solid #ddd;}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas"></canvas>
+	<script>
+	var myCanvas = document.getElementById("myCanvas");
+	var cas = myCanvas.getContext("2d");
+
+	myCanvas.width = 500;
+	myCanvas.height = 500;
+	myCanvas.onmousedown = function(evt){
+
+			var evt = window.event || evt;
+			/*按下是点*/
+			cas.moveTo(evt.clientX-myCanvas.offsetLeft,evt.clientY-myCanvas.offsetTop);
+		document.onmousemove = function(evt){
+				/*移动是线*/
+				var evt = window.event || evt;
+				cas.lineTo(evt.clientX-myCanvas.offsetLeft,evt.clientY-myCanvas.offsetTop);
+				//输出
+				cas.stroke();
+
+		}
+
+		document.onmouseup = function(){
+
+			document.onmousemove = null;
+
+		}
+	}
+	</script>
+</body>
+</html>

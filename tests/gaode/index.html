@@ -1,0 +1,100 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+<title>约吗？就在双12</title>
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="http://h5.lietou-static.com/m/css/event/14gaode/index.css?time=213412341234" type="text/css" >
+</head>
+<body>
+
+	<div class="container">
+		<div class="sec">
+			<div class="li">
+                <div class="start-top animat"><div class="yuema"></div></div>
+                <div class="start-two animat"><div class="double"></div></div>
+                <div class="start-three animat"><div class="hand"></div></div>
+                <div class="span"></div></div>
+			<div class="li">
+                <div><div class="animat"></div></div>
+                <div><div class="animat"></div></div>
+                <div class="animat"><div></div></div>
+                <div class="two-four animat"><div></div></div>
+                <div class="span"></div></div>
+			<div class="li">
+                <div class="three-top animat"><div></div></div>
+                <div class="three-two animat"><div></div></div>
+                <div class="span"></div></div>
+			<div class="li">
+                <div class="four-top"><div class="animat"></div></div>
+                <div class="span"></div></div>
+			<div class="li">
+                <div class="last-top">
+                    <div>
+                        <div class="animat" style="margin-left: 0.9375em"></div><div  class="animat"style="margin: 0 0.9375em"></div><div class="animat"></div>
+                    </div>
+                </div>
+                <div class="animat"><div></div></div>
+                <div class="animat"><div></div></div>
+                <div class="span"></div>
+                <a href="http://m.liepin.com/usere/showedetail/?user_id=886980" id="alink"></a>
+		    </div>
+    </div>
+</div>
+<script src="http://h5.lietou-static.com/m/lib/seajs/sea.js" id="seajsnode"></script>
+<script type="text/javascript" charset="utf-8">
+	seajs.config({
+			base: 'http://h5.lietou-static.com/m' ,
+			alias: {
+				'zepto':'lib/zepto/zepto',		
+				'swipe':'lib/swipe/swipe',
+				'swipepage':'lib/swipepage/swipepage'		
+			}
+		});
+
+	seajs.use('js/event/14gaode/index');
+
+    //微信相关配置
+    var dataForWeixin={
+        appId:"",
+        title:"约吗？就在双12",
+        link:location.href,
+        MsgImg:"http://h5.lietou-static.com/m/images/event/14gaode/images/share.jpg",
+        desc:"你想颠覆中国互联网地图格局吗？"
+    };
+
+    document.addEventListener('WeixinJSBridgeReady', function(){
+        // 分享到朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function(argv){
+            var $weixinParams = $('.weixinParams'),
+                    weixinParams = {
+                        "appid": "",
+                        "title": dataForWeixin.title,
+                        "link": dataForWeixin.link,
+                        "img_url" :dataForWeixin.MsgImg,
+                        "desc":dataForWeixin.desc
+                    };
+            WeixinJSBridge.invoke('shareTimeline', weixinParams, function(d) {
+                WeixinJSBridge.log(d.err_msg);
+            });
+        });
+        //发送给朋友
+        WeixinJSBridge.on('menu:share:appmessage', function(argv){
+            var $weixinParams = $('.weixinParams'),
+                    weixinParams = {
+                        "appid": "",
+                        "title": dataForWeixin.title,
+                        "link": dataForWeixin.link,
+                        "img_url" :dataForWeixin.MsgImg,
+                        "desc":dataForWeixin.desc
+                    };
+            WeixinJSBridge.invoke('sendAppMessage',weixinParams, function(){
+                // nothing
+            });
+        });
+    });
+</script>
+<!--#include virtual="/includes/statistic_h5.html"-->
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!--让IE以最新的内核渲染 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<!--让视口宽度为设备宽度,不允许用户缩放 -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<!--不自动识别电话号码和邮编 -->
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="format-detection" content="email=no"/>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="ggl" id="ggl">
+		<section id="jp">一等奖</section>
+		<canvas id="cvs" width="300" height="150">您的浏览器版本太低</canvas>
+	</div>
+	<script>
+		var arr=["一等奖","二等奖","三等奖","谢谢参与","谢谢参与","谢谢参与"];
+document.getElementById("jp").innerHTML=arr[parseInt(Math.random()*4)]
+ggl();
+function ggl(){
+	var cvs=document.getElementById("cvs"),
+		ggl=document.getElementById("ggl"),
+	cxt=cvs.getContext("2d");
+	cxt.beginPath();
+	cxt.fillStyle="#ccc";
+	//cxt.lineWidth=30;
+	cxt.fillRect(0,0,300,150);
+	cxt.closePath();
+	cvs.addEventListener("touchstart",function(e){
+		sFn(e)
+	},false)
+	cvs.addEventListener("touchmove",function(e){
+		mFn(e)
+	},false)
+	function sFn(e){
+		var x=e.touches[0].clientX-ggl.offsetLeft,
+			y=e.touches[0].clientY-ggl.offsetTop;
+			cxt.beginPath();
+			cxt.lineWidth="30";
+			cxt.globalCompositeOperation="destination-out";
+			cxt.lineCap="round";
+			cxt.lineJoin="round";
+			cxt.moveTo(x,y);
+	}
+	function mFn(e){
+		var x1=e.touches[0].clientX-ggl.offsetLeft,
+			y1=e.touches[0].clientY-ggl.offsetTop;
+		cxt.lineTo(x1,y1);
+		cxt.stroke();
+		//cxt.closePath();
+		if(getArea(cxt)*100>80){
+			cxt.fillRect(0,0,300,150);
+		};
+	}
+	function getArea(cxt){
+		var imgData=cxt.getImageData(0,0,300,150),
+			counter=0;
+		for(var i=0,l=imgData.data.length;i<l;i++){
+			if(imgData.data[i]==0){
+				counter++;
+			}
+		}
+		return counter/imgData.data.length;
+	}
+}
+
+	</script>
+</body>
+</html>

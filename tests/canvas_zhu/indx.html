@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	#myCanvas{ border:1px solid #ccc;}
+</style>
+<body>
+	<canvas id="myCanvas" width="700" height="500"></canvas>
+</body>
+<script src="index.js"></script>
+<script>
+	new lineWidth({
+		"x":["10月","11月","12月","1月","2月","3月"],
+		"y":[0,50,100,150,200,250,300,350],
+		"font":[
+				{"color":"pink","value":[100,250,150,170,130,156]},
+				{"color":"blue","value":[40,134,67,150,70,90]}
+		]
+	},document.getElementById("myCanvas"))
+</script>
+</html>

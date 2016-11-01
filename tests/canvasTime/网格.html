@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="mycanvas"></canvas> <!-- 网格 -->
+	<script>
+	var	mycanvas = document.getElementById("mycanvas");
+	var cas = mycanvas.getContext("2d");
+
+	mycanvas.width = 500;
+	mycanvas.height = 300;
+
+	cas.strokeRect(0,0,500,300);
+	cas.beginPath();
+	var hx = [0,0];
+	var hy = [0,300];
+
+	for(var i=0;i<=5;i++){
+
+		cas.lineWidth = 5;
+		cas.moveTo(hx[0],hx[1]);
+		cas.lineTo(hy[0],hy[1]);
+		cas.strokeStyle = "orange";
+		cas.closePath();
+		cas.stroke();
+		hx[0]+=100;
+		hy[0]+=100;
+
+	}
+
+	var sx = [0,0];
+	var sy = [500,0];
+
+	for(var i=0;i<=3;i++){
+
+		cas.beginPath();
+		cas.strokeStyle = "green";
+		cas.moveTo(sx[0],sx[1]);
+		cas.lineTo(sy[0],sy[1]);
+		cas.closePath();
+		cas.stroke();
+		sx[1]+=100;
+		sy[1]+=100;
+
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html >
+<head>
+<meta  http-equiv="Content-Type" content="text/html; charset=utf-8"  />
+<title>坦克大战</title>
+<style>
+body{ text-align:center;}
+.mainBox{
+	width:500px; height:500px; border:1px solid #666; margin:10px auto;
+	position:relative; overflow:hidden;
+}
+.tank{ position:absolute; width:50px; height:50px; background:url('1.png') no-repeat;background-size:cover;
+
+}
+.tank .gun{ width:30px; height:5px; background:#999; display:block;transform:translate(25px,22px);opacity: 0;}
+.bullet{ width:10px; height:10px; background:#F00; position:absolute; display:block; margin:0; padding:0; border-radius:10px;}
+</style>
+</head>
+
+<body>
+<div class="mainBox" id="mainBox">
+
+</div>
+<script src="script/bullet.js"></script>
+<script src="script/tankjs.js"></script>
+<script src="script/foeBullet.js"></script>
+<script src="script/foeTank.js"></script>
+
+<script>
+var fpeObj={};/*敌方阵营坦克*/ 
+var i=2;/*初始敌方阵营坦克*/
+window.onload=function(){
+
+	var player=new Tank({top:50,left:50});
+	player.init();
+	//console.log(i);
+	/*var fpe1=new FoeTank({top:50,left:300});
+	fpe1.init();*/
+	createfoe(i);
+	//console.log(fpeObj);
+	window.onkeydown=function(ev){
+		//console.log(ev.keyCode);
+		switch(ev.keyCode){
+			case 37:/*左*/
+				player.config.direction="left";
+				player.move();
+			break;
+			case 38:/*上*/
+				player.config.direction="up";
+				player.move();
+			break;
+			case 39:/*右*/
+				player.config.direction="right";
+				player.move();
+			break;
+			case 40:/*下*/
+				player.config.direction="down";
+				player.move();
+			break;
+			case 32:/*开炮*/
+				player.fire();
+			break;
+		}
+
+	}
+	setInterval(watch,10);
+}
+
+function createfoe(nmb){
+	for(var i=0;i<nmb;i++){
+		var id=createID();
+		fpeObj[id]=new FoeTank({id:id,top:Math.floor(Math.random()*450),left:Math.floor(Math.random()*450),bgcolor:createColor()});
+		fpeObj[id].init();
+		fpeObj[id].autoMove();
+		fpeObj[id].turnAround();
+	}
+}
+
+function createID(){
+	var text="qwertyuiopasdfghjklzxcvbnm1234567890";
+	var number="qwertyuiopasdfghjklzxcvbnm";
+
+	var id=number[Math.floor(Math.random()*26)];
+	for(var i=0;i<15;i++){
+		id+=text[Math.floor(Math.random()*36)];
+	}
+	return id;
+}
+
+function createColor(){
+	var inF="0123456789abcde";
+	var color="#";
+	for(var i=0;i<6;i++){
+		color+=inF[Math.floor(Math.random()*15)];
+	}
+	return color;
+}
+
+function watch(){
+	var hask=false;
+	for(var k in fpeObj){
+		hask=true;
+		break;
+	}
+	if(!hask){
+		var r=confirm('你赢了！开始下一关？')
+		if(r){
+			i++;
+			document.getElementById("mainBox").innerHTML='';
+			window.onload();
+		}else{
+			window.close();
+		}
+	}
+}
+</script>
+</body>
+
+</html>

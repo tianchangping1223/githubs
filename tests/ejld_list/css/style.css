@@ -1,0 +1,54 @@
+  *{
+    padding:0;
+    margin: 0;
+  }
+  .menu1,.menu2{
+    width:500px;
+    height:48px;
+    line-height: 48px;
+    border:1px solid #ccc;
+  }
+  .menu1 label,.menu2 label{
+    width:60px;
+    height:48px;
+    float:left;
+  }
+  .menu1 div,.menu2 div{
+    width:100px;
+    height:48px;
+    float: left;
+    position: relative;
+    margin-right:30px;
+  }
+  .menu1 div span,.menu2 div span{
+    width:100px;
+    height:36px;
+    background: #ccc;
+    text-align: center;
+    line-height:36px;
+    border:2px solid #ccc;
+    position: absolute;
+    left:0;
+    top:4px;
+  }
+  .menu1 div span:after,.menu2 div span:after{
+    content:"";
+    width:0;
+    height:0;
+    border:5px solid transparent;
+    border-top-color:red;
+    position: absolute;
+    right:5px;
+    top:12px;
+  }
+  .menu1 div select,.menu2 div select{
+    width:102px;
+    height:40px;
+    position: absolute;
+    left:0;
+    top:4px;
+    opacity:0;
+  }
+    .menus2{
+      display: none;
+    }

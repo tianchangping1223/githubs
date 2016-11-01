@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#myCanvas{background: #ccc;border: 1px solid #000;}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" width="600" height="500"></canvas>
+	<script>
+	var myCanvas = document.getElementById("myCanvas");
+	var cas = myCanvas.getContext("2d");
+//左边黑色半圆
+	cas.beginPath();
+	cas.fillStyle = "black";
+	cas.arc(220,220,100,0.5*Math.PI,1.5*Math.PI,false);
+	cas.fill();
+//右边白色半圆
+	cas.beginPath();
+	cas.fillStyle = "white";
+	cas.arc(220,220,100,1.5*Math.PI,0.5*Math.PI,false);
+	cas.fill();
+//找中心点，在上面画个白色半圆，或者整圆
+	cas.beginPath();
+	cas.fillStyle = "white";
+	cas.arc(220,170,50,0,2*Math.PI,false);
+	cas.fill();
+	//找中心点，在下面画个黑色半圆，或者整圆
+	cas.beginPath();
+	cas.fillStyle = "black";
+	cas.arc(220,270,50,1.5*Math.PI,0.5*Math.PI,false);
+	cas.fill();
+	//画两个像眼睛似得小圆
+	cas.beginPath();
+	cas.fillStyle = "black";
+	cas.arc(220,170,10,0,2*Math.PI,false);
+	cas.fill();
+
+	cas.beginPath();
+	cas.fillStyle = "white";
+	cas.arc(220,270,10,0,2*Math.PI,false);
+	cas.fill();
+
+	/*cas.arc(圆心横坐标,圆心纵坐标,半径,角度,角度2*Math.PI,false顺|true逆时针);*/
+	</script>
+</body>
+</html>

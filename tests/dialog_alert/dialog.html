@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!--让IE以最新的内核渲染 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<!--让视口宽度为设备宽度,不允许用户缩放 -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<!--不自动识别电话号码和邮编 -->
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="format-detection" content="email=no"/>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/dialog.css">
+</head>
+<body>
+	<ul id="product">
+		<li>按钮1 <button>删除</button></li>
+		<li>按钮2 <button>删除</button></li>
+		<li>按钮3 <button>删除</button></li>
+	</ul>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/dialog.js"></script>
+	<script>
+	$(function(){
+
+		$("#product").on("tap","button",function(){
+
+			var li = $(this).parent();
+			//调用插件$.dialog();  $.插件名()    
+			//$.插件名({变量名:"需要改变的",变量名:"需要改变的"})
+			//要改变弹出框的内容和按钮个数  按钮内容  按钮作用
+			$.dialog({
+				txt:"确定要删除吗？",
+				callback:function(){
+					//作用:点击哪个button 对应的父节点li删除
+					li.remove();
+				}
+			});
+
+		})
+
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="Viewport" content="width=device-width,initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/yy.css">
+</head>
+<body>
+	<div class="box" id="box">
+		<div class="sear-box" id="sear-box">
+			<p>
+				<input type="text" id="txt">
+				<input type="button" id="btn">
+			</p>
+		</div>
+	<!-- ++++++++++header start ++++++++++ -->
+		<header class="header">
+			<a href="#" class="fan-btn" id="back-btn">返回</a>
+			<h1 id="title">孕育宝典</h1>
+			<a href="#search" class="sea-btn" id="sea-btn">搜索</a>
+			<span class="save-btn" id="save-btn">收藏</span>
+		</header>
+	<!-- ++++++++++header end ++++++++++ -->
+
+	<!-- ++++++++++main start++++++++++ -->
+
+		<div class="main">
+		<!-- 000000000首页0000000 -->
+			<section id="home" class="home">
+				<div>
+					<a href="#list" title="孕前准备" id="yq"><img src="images/pic1.png"></a>
+					<a href="#list" title="孕中知识" id="yz"><img src="images/pic2.png"></a>
+					<a href="#list" title="产前知识" id="cq"><img src="images/pic3.png"></a>
+					<a href="#list" title="分娩产后" id="ch"><img src="images/pic4.png"></a>
+					<a href="#list" title="幼儿成长指标" id="cz"><img src="images/pic5.png"></a>
+					<a href="#list" title="幼儿常见病防治" id="fz"><img src="images/pic6.png"></a>
+				</div>
+			</section>
+		<!-- 000000000首页0000000 -->
+
+		<!-- 000000000收藏0000000 -->
+			<section id="favorite">
+				<div class="scroller">
+					<ul id="fav-list" class="fav-list list">
+						<li>正在加载中.......</li>
+					</ul>
+				</div>
+			</section>
+		<!-- 000000000收藏0000000 -->
+
+		<!-- 000000000收藏0000000 -->
+			<section id="history">
+				<div class="scroller">
+					<ul id="his-list" class="his-list list">
+						<li>正在加载中.......</li>
+					</ul>
+				</div>
+			</section>
+			<section id="set"><!-- 设置 -->
+				<section id="set" class="set">
+				<div class="turn">
+					有可更新数据，是否自动更新
+					<input type="checkbox" id="an"><label for="an" id="off" class="an off">点击设置静音</label>
+				</div>
+				<div class="box">
+					字体大小
+					<input type="radio" id="man" name="sex"><label for="man">小</label>
+					<input type="radio" id="woman" name="sex"><label for="woman">中</label>
+					<input type="radio" id="noman" name="sex"><label for="noman">大</label>
+				</div>
+			</section>
+			</section>
+
+			<!-- =============列表页显示============ -->
+			<section id="list" class="list">
+				<div class="scroller">
+					<p class="loading">正在加载数据........</p>
+					<div id="list-con" class="list-con">
+						<!-- <a href="#details">
+							<dl>
+								<dt><img src="images/tu/0.jpg"></dt>
+								<dd>孕前准备孕前准备孕前准备孕前准备</dd>
+							</dl>
+						</a> -->
+					</div>
+				</div>
+			</section>
+			<!-- =============列表页显示============ -->
+
+			<!-- =============内容页显示============ -->
+			<section id="details" class="details">
+				<div class="scroller" id="article">
+					
+				</div>
+			</section>
+			<!-- =============内容页显示============ -->
+
+			<!-- =============搜索页显示============ -->
+			<section id="search" class="search">
+				<div class="scroller">
+					<ul class="sea-list list" id="sea-list">
+						<li>正在加载中.......</li>
+					</ul>
+				</div>
+			</section>
+			<!-- =============搜索页============ -->
+
+		</div>
+	<!-- ++++++++++main end++++++++++ -->
+
+	<!-- ++++++++++footer start++++++++++ -->
+		<footer class="footer">
+			<nav>
+				<a href="#home" title="孕育宝典">首页<small>home</small></a>
+				<a href="#favorite" title="收藏">收藏<small>favorite</small></a>
+				<a href="#history" title="历史记录">历史记录<small>history</small></a>
+				<a href="#set" title="设置">设置<small>set</small></a>
+			</nav>
+			<div class="marker" id="marker"></div>
+		</footer>
+	<!-- ++++++++++footer end ++++++++++ -->
+
+	</div>
+	<script type="text/javascript" src="js/zepto.js"></script>
+	<script type="text/javascript" src="js/iscroll4.js"></script>
+	<script type="text/javascript" src="js/yy.js"></script>
+</body>
+</html>

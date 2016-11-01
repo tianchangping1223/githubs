@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta charset="utf-8">
+		<!-- 宽度为设备宽度，初始缩放比例为一，用户最大最小缩放比例为一，不允许用户手动缩放 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+		<!-- 禁止设备将数字作为拨号连接，邮箱自动发送，点击地图跳转 -->
+		<meta name="format-detection" content="telephone=no,email=no，adress=no">
+		<!-- 强制全屏显示 -->
+		<meta name="full-screen" content="yes">
+		<!-- 开启对webapp的支持 -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- web app 应用下状态条（屏幕顶部条）的颜色,默认值为 default（白色） -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<!-- 禁止浏览器从的缓存中访问页面内容 -->
+		<meta http-equiv="Pragma" content="no-cache">
+		<title></title>
+		<style type="text/css">
+
+			*{margin: 0;padding: 0;}
+			div{width: 4.1rem;height: 4.1rem;
+				position: relative;
+				margin:2rem auto;}
+			/* transform-style：flat(默认，二维效果) / preserve-3d(三维效果)。设置一个元素的transform-style:preserve-3d；只影响这个元素的子元素，如果孙元素也有3d效果，那么还必须给子元素设置preserve-3d*/
+			ul{width: 4.1rem;height: 4.1rem;
+				transform-style: preserve-3d;transform-origin: 2.05rem 2.05rem -2.05rem;
+				position: absolute;}
+			li{list-style: none;
+				width: 4.08rem;height: 4.08rem;
+				border: 1px solid red;
+				position: absolute;}
+			/* 将li移动形成正方体 */
+			li:nth-child(1){left: 0;top:0;background: url(img/0.jpg);background-size:100% 100%;}
+			li:nth-child(2){left: -4.1rem;top:0;transform: rotateY(-90deg);transform-origin: right;
+				background: url(img/1.jpeg);background-size:100% 100%;}
+			li:nth-child(3){left: 0;top:0;transform: translateZ(-4.1rem) rotateY(180deg);
+				background: url(img/2.jpg);background-size:100% 100%;}
+			li:nth-child(4){left: 4.1rem;top:0;transform: rotateY(90deg);transform-origin: left;
+				background: url(img/3.jpg);background-size:100% 100%;}
+			li:nth-child(5){left: 0;top:-4.1rem;transform: rotateX(90deg);transform-origin: bottom;
+				background: url(img/4.jpg);background-size:100% 100%;}
+			li:nth-child(6){left: 0;top:4.1rem;transform: rotateX(-90deg);transform-origin: top;
+				background: url(img/5.jpg);background-size:100% 100%;}
+
+		</style>
+
+		<script type="text/javascript">
+			window.onload=init;
+			function init(){
+				var ul=document.getElementsByClassName("ul")[0];
+				//让ul旋转一下可以让我们看到
+				ul.style.transform="scale(0.6) rotateX("+now.b+"deg) rotateY("+now.a+"deg)";
+				document.documentElement.style.fontSize = document.documentElement.clientWidth /6.4+'px';
+				ul.addEventListener("touchstart",touchs);
+				ul.addEventListener("touchmove",touchm);
+				ul.addEventListener("touchmove",touche);
+			};
+
+			var str={
+				x:0,y:0
+			}
+			var now={
+				a:45,b:-45
+			}
+			var i=10/41;
+
+			function touchs(event){
+				str.x=event.touches[0].clientX;//事件被触发时鼠标指针向对于浏览器页面（或客户区）的水平坐标
+				str.y=event.touches[0].clientY;//事件被触发时鼠标指针向对于浏览器页面（或客户区）的垂直坐标
+			};
+			function touchm(event){
+				var ul=document.getElementsByClassName("ul")[0];
+				now.a+=(event.touches[0].clientX-str.x)*i;
+				now.b+=-(event.touches[0].clientY-str.y)*i;
+				//console.log(now.a+"_"+now.b)
+
+				ul.style.transform="scale(0.6) rotateX("+now.b+"deg)"+"rotateY("+now.a+"deg)";
+			};
+			function touche(){
+
+			};
+
+		</script>
+	</head>
+	<body>
+		<div>
+			<ul class="ul">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+</html>

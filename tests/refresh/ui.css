@@ -1,0 +1,218 @@
+.ui-dialog{
+	font-size: 18px;
+	z-index: 99; 
+	text-align:center;
+	color: #19273f;
+	font-family: "myFontFace", "Microsoft Yahei", "宋体",sans-serif;
+}
+
+.ui-shade{
+	opacity: 0.5; 
+	position: fixed; 
+	top: 0px; 
+	left: 0px; 
+	width: 100%; 
+	height: 100%; 
+	background: rgb(0, 0, 0);
+}
+
+.ui-content{
+	position: relative; 
+	width: 100%;
+}
+
+.ui-display-box-v{
+	display: -webkit-box;
+	-webkit-box-orient:vertical;
+}
+
+.ui-display-box-h{
+	display: -webkit-box;
+	-webkit-box-orient:horizontal;
+}
+
+.ui-box-flex-v{
+	-webkit-box-flex:1;
+	height: 0px;
+}
+
+.ui-box-flex-h{
+	-webkit-box-flex:1;
+	width: 0px;
+}
+
+.ui-dialog .ui-panel{
+	border-radius: 5px; 
+	overflow: hidden; 
+	width: 80%; 
+	margin-left: auto;
+	margin-right: auto;
+	background: #ffffff;
+}
+
+.ui-dialog .ui-head{
+	cursor: move; 
+	height: 3rem;
+	line-height: 3;
+	position: relative;
+	border-bottom: solid 1px #d7d7d7;
+}
+
+.ui-dialog .ui-body{
+	cursor: move; 
+	min-height: 100px;
+	position: relative;
+	border-bottom: solid 1px #d7d7d7;
+}
+
+.ui-dialog .ui-foot{
+	height: 60px;
+	color: #feaa09;
+	line-height: 2.86;
+}
+
+.ui-dialog .ui-message{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.ui-softinput{
+	width:100%;
+	height:12rem;
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	font-size: 1.6rem;
+	border-collapse:collapse;
+}
+
+.ui-softinput li{
+	border-top:solid 1px #bbbbbb;
+	height:3rem;
+	position:relative;
+}
+
+.ui-softinput li label{
+	display: block;
+}
+
+.ui-softinput-cell-border{
+	border-left:solid 1px #bbbbbb;
+	border-right:solid 1px #bbbbbb;
+}
+
+.ui-softinput-font-samll{
+	font-size: 0.4rem;
+}
+
+.ui-delete{
+	height: 3rem;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url(../images/delete.png);
+	background-size: 2rem 2rem;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.ui-cell-gray{
+	background:#d2d5db
+}
+
+
+.refresh-scroll-wrapper {
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	bottom: 0px;
+	width: 100%;
+	background:rgb(232, 232, 232);
+	overflow: auto;
+}
+
+.refresh-scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	width: 100%;
+	padding: 0;
+}
+
+.refresh-scroller ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	text-align: left;
+}
+
+.refresh-scroll-header,.refresh-scroll-footer {
+	background: #fff;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+	font-size: 14px;
+	color: #888;
+}
+
+.refresh-scroll-header .refresh-scroll-header-icon,.refresh-scroll-footer .refresh-scroll-footer-icon
+{
+	display: block;
+	float: left;
+	width: 40px;
+	height: 40px;
+	top: 10px;
+	position: relative;
+	background: url(../images/pull-icon@2x.png) 0 0 no-repeat;
+	-webkit-background-size: 40px 80px;
+	background-size: 40px 80px;
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: 250ms;
+}
+
+.refresh-scroll-header div,.refresh-scroll-footer div {
+	position: relative;
+	width: 200px;
+	margin: 0 auto;
+}
+
+.refresh-scroll-header .refresh-scroll-header-icon {
+	-webkit-transform: rotate(0deg) translateZ(0);
+}
+
+.refresh-scroll-footer .refresh-scroll-footer-icon {
+	-webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+.refresh-scroll-header.flip .refresh-scroll-header-icon {
+	-webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+.refresh-scroll-footer.flip .refresh-scroll-footer-icon {
+	-webkit-transform: rotate(0deg) translateZ(0);
+}
+
+.refresh-scroll-header.loading .refresh-scroll-header-icon,.refresh-scroll-footer.loading .refresh-scroll-footer-icon
+{
+	background-position: 0 100%;
+	-webkit-transform: rotate(0deg) translateZ(0);
+	-webkit-transition-duration: 0ms;
+	-webkit-animation-name: loading;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes loading {from { -webkit-transform:rotate(0deg)translateZ(0);
+	
+}
+
+to {
+	-webkit-transform: rotate(360deg) translateZ(0);
+}
+}
+
+
